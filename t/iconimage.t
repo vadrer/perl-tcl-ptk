@@ -10,11 +10,8 @@ plan tests => 1;
 
 my $top = MainWindow->new();
 
-my $version = $top->tclVersion;
-# print "version = $version\n";
-
-# Skip if Tcl/pTk version is < 8.5
-if( $version < 8.5 ){
+# Skip if Tcl/Tk version is < 8.5
+if( $top->interp->Eval('package vcompare $tk_version 8.5') == -1 ){
         skip("iconimage only works for Tcl >= 8.5", 1);
         exit;
 }

@@ -12,11 +12,11 @@ use vars qw($top);
 
 my $top = MainWindow->new();
 
-my $tclVersion = $top->tclVersion;
-unless( $tclVersion > 8.4 ){
-        plan tests => 1;
-        skip("Tile Tests on Tcl version < 8.5", 1);
-        exit;
+# This will skip if Tile widgets not available
+if( $top->interp->Eval('package vcompare $tk_version 8.5') == -1 ){
+     plan tests => 1;
+     skip("Tile Tests on Tcl version < 8.5", 1);
+     exit;
 }
 
 plan tests => 13;

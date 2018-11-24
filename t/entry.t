@@ -34,9 +34,8 @@ ok(ref($scalarRef), 'SCALAR', "textvariable is scalar ref");
 # Make sure DoOneEvent call works
 DoOneEvent(DONT_WAIT);
 
-my $tclversion = $TOP->tclVersion;
-
-if( $tclversion > 8.4){
+# Tcl::pTk::timeofday uses Tcl `clock microseconds`, requires Tcl 8.5+
+if( $TOP->interp->Eval('package vcompare $tcl_version 8.5') != -1 ){
         # Make sure timeofday works
         my $t = Tcl::pTk::timeofday;
 

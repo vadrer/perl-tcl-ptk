@@ -6,8 +6,6 @@ use Test;
 use Tcl::pTk;
 #use Tk;
 
-plan tests => 3;
-
 my $textVar = "Initial Value";
 
 $| = 1;
@@ -15,16 +13,14 @@ $| = 1;
 
 my $TOP = MainWindow->new();
 
-my $version = $TOP->tclVersion;
-# print "version = $version\n";
-
-# Skip if Tcl/pTk version is < 8.5
-if( $version < 8.5 ){
-        skip("Tile widgets only works for Tcl >= 8.5", 1);
-        skip("Tile widgets only works for Tcl >= 8.5", 1);
+# Skip if Tcl/Tk version is < 8.5
+if( $TOP->interp->Eval('package vcompare $tk_version 8.5') == -1 ){
+        plan tests => 1;
         skip("Tile widgets only works for Tcl >= 8.5", 1);
         exit;
 }
+
+plan tests => 3;
 
 # Parameters passed to the -validatecommand
 my ($proposed, $changes, $current, $index, $type) ;

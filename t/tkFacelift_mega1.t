@@ -89,8 +89,7 @@ package main;
 my $TOP = MainWindow->new();
 
 # This will skip if Tile widgets not available
-my $tclVersion = $TOP->tclVersion;
-unless( $tclVersion > 8.4 ){
+if( $TOP->interp->Eval('package vcompare $tk_version 8.5') == -1 ){
         plan tests => 1;
         skip("Tile Tests on Tcl version < 8.5", 1);
         exit;

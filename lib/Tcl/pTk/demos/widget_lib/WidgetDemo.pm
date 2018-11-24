@@ -29,12 +29,10 @@ sub Populate {
     );
     
     # Use tile Buttons, if tcl version is >= 8.5
-    my $buttonWidget = 'Button';
-    $buttonWidget = 'ttkButton' if( $self->tclVersion() >= 8.5);
-    
-
-    
-    
+    my $buttonWidget = ($self->interp->Eval('package vcompare $tk_version 8.5') != -1 )
+        ? 'ttkButton'
+        : 'Button'
+    ;
     
     my $name = $arg_defaults{-name};
     $arg_defaults{-title} = "$name Demonstration",

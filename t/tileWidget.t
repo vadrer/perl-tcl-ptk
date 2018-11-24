@@ -12,11 +12,8 @@ plan test => 1;
 
 my $TOP = MainWindow->new;
 
-my $version = $TOP->tclVersion;
-# print "version = $version\n";
-
 # Skip if Tcl/pTk version is < 8.5
-if( $version < 8.5 ){
+if( $TOP->interp->Eval('package vcompare $tk_version 8.5') == -1 ){
         skip("Tile widgets only works for Tcl >= 8.5", 1);
         exit;
 }

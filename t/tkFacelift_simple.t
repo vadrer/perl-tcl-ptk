@@ -15,8 +15,7 @@ use Test;
 my $top = MainWindow->new( -title => "Hijack Test" );
 
 # This will skip if Tile widgets not available
-my $tclVersion = $top->tclVersion;
-unless( $tclVersion > 8.4 ){
+if( $top->interp->Eval('package vcompare $tk_version 8.5') == -1 ){
         plan tests => 1;
         skip("Tile Tests on Tcl version < 8.5", 1);
         exit;
