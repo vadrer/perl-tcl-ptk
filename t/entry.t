@@ -23,8 +23,6 @@ my $TOP = MainWindow->new();
     my $selectPresent = $e2->selectionPresent;
     ok($selectPresent, 0, "camelCase call check");
     
-$TOP->after(1000,sub{$TOP->destroy});
-
 ok(1, 1, "Entry Widget Creation");
 
 # Check to see if the textvariable is returned properly as a scalar reference
@@ -46,4 +44,5 @@ else{
         skip("timeofday check for Tcl version 8.4");
 }
 
-MainLoop;
+$TOP->idletasks;
+MainLoop if (@ARGV);

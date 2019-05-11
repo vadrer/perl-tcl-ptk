@@ -140,9 +140,8 @@ $t->windowConfigure("5,1", -sticky => 'nsew', -window => $l);
 
 $t->spans( '-1,-2' => '0,3',  '1,2' =>  '0,5','3,2' => '2,2',  '6,0' => '4,0');
 
-$top->after(1000, sub{ $top->destroy;}) unless(@ARGV); # If args supplied (debug mode), don't quit after 1 second
-
-MainLoop;
+$top->idletasks;
+MainLoop if (@ARGV); # If args supplied (debug mode), don't quit
 
 ok(1,1,"TableMatrix Debug Demo");
 

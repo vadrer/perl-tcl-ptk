@@ -99,8 +99,5 @@ $label = $rb->cget(-label);
 #print "radiobutton label = '$label'\n";
 ok($label, 'Radiobutton2', "Radiobutton cget call2");
 
-$top->after(500, sub{ $top->destroy}) unless(@ARGV); # For debugging, stay in the mainloop if anything on the commandline
-
-MainLoop;
-
-
+$top->idletasks;
+MainLoop if (@ARGV); # For debugging, stay in the mainloop if anything on the commandline
