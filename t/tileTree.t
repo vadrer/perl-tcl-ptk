@@ -89,10 +89,8 @@ while(@data){
                      
 }
 
-$TOP->after(1000, sub{ $TOP->destroy }) unless (@ARGV); # Persist if any args supplied, for debugging
-
-
- MainLoop;
+$TOP->idletasks;
+MainLoop if (@ARGV); # Persist if any args supplied, for debugging
  
 ok(1);
  
