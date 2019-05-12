@@ -445,9 +445,8 @@ sub see_code {
 	$CODE = $MW->Toplevel;
 	my $code_buttons = $CODE->Frame;
         
-        # Use Tile Buttons, if Tcl Version > 8.5
-        my $buttonWidget = 'Button';
-        $buttonWidget = 'ttkButton' if( $MW->tclVersion >= 8.5);
+    # Use Tile Buttons if available
+    my $buttonWidget = $Tcl::pTk::_Tile_available ? 'ttkButton' : 'Button';
         
 	$code_buttons->pack(qw/-side bottom -fill x/);
 	my $code_buttons_dismiss = $code_buttons->$buttonWidget(
