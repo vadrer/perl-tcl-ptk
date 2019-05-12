@@ -1,7 +1,9 @@
 Summary of Changes to Tcl::pTk
 
-Release 0.97:  2019-mm-dd
+Release 1.00:  2019-mm-dd
 
+ * Drop Tcl/Tk 8.4 support. It is long unsupported by Tcl/Tk, and since many package managers have discontinued it, it is not feasible to obtain and test with Tcl::pTk.
+   TODO: comb through and revise documentation.
  * Fix POD errors (`=cut` outside POD block) reported by CPANTS
    (contribution from Mohammad S Anwar)
  * Improve compliance with `use warnings` and `use strict`
