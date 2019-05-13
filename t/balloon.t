@@ -29,9 +29,12 @@ ok($class, 'Balloon', "Balloon Classname Check");
 $bln->attach($b, -msg => "Popup help");
 $TOP->update;
 ok($bln->state, 'withdrawn', 'Balloon withdrawn');
+
 $b->eventGenerate('<Motion>', -x => 10, -y => 10);
 $TOP->update;
+
 ok($bln->state , 'withdrawn', 'Balloon not yet visible');
+
 $TOP->after(500, sub {
     ok($bln->state, 'normal', 'Balloon now visible');
     $TOP->destroy unless (@ARGV);
