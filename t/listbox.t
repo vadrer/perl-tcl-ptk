@@ -66,9 +66,8 @@ $listVar2[2] = 'JJ';
 #print "current Values = ".join(", ", @currentValues)."\n";
 ok(join(" ", @currentValues), 'a b JJ d e f', 'listbox listvariable set check2');
 
-$top->after(1000,sub{$top->destroy});
-
-MainLoop;
+$top->idletasks;
+MainLoop if (@ARGV);
 
 
 ok(1, 1, "Listbox Widget Creation");

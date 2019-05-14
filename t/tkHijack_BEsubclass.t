@@ -86,6 +86,7 @@ ok(scalar(@components), 1, "Facelifted BrowseEntry Subclass Components = 1");
 $be2->pack(-side => 'top', -fill => 'x', -expand => 1);
 
 
+$top->idletasks;
 MainLoop if(@ARGV); # For debugging only, enter the mainloop if args supplied on the command line
 
 
