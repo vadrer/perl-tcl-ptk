@@ -132,13 +132,5 @@ my $label = $top->Label(-text => "TableMatrix v2 Example");
 }
 
 
-$top->after(3000, sub{
-                $top->destroy;
-}) unless(@ARGV); # if args supplied, don't exit right away (for debugging)
- 
-
-MainLoop;
-
-
-        
-
+$top->idletasks;
+MainLoop if (@ARGV); # if args supplied, don't exit right away (for debugging)
