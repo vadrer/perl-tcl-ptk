@@ -7,6 +7,9 @@ our ($VERSION) = ('1.01_01');
 #   the Wm, Derived and widget packages
 #
 
+use strict;
+use warnings;
+
 use base qw(Tcl::pTk::Wm Tcl::pTk::Derived Tcl::pTk::Widget);
 
 use Tcl::pTk::Widget();

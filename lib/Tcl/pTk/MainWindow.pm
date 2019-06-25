@@ -2,6 +2,9 @@ package Tcl::pTk::MainWindow;
 
 our ($VERSION) = ('1.01_01');
 
+use warnings;
+use strict;
+
 use Tcl::pTk::Toplevel;
 
 @Tcl::pTk::MainWindow::ISA = (qw/ Tcl::pTk::Toplevel/);
